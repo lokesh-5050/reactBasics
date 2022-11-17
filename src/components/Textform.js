@@ -1,9 +1,9 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState , useEffect } from "react";
 
 export default function Textform(props) {
   const [text, setText] = useState("");
   const [times, setTime] = useState("Time Now");
-  
+
   // const [btnText, setBtnText] = useState("Enable Dark Mode");
   // const [theme, setTheme] = useState({
   //   width: "70%",
@@ -32,7 +32,25 @@ export default function Textform(props) {
   //   }
   // };
 
-  
+  /*2nd loghic for darkMode*/ 
+
+  const [theme, setTheme] = useState('Light')
+  const [btnText, setBtnText] = useState('Enable Dark Mode')
+  const changeTheme = () =>{
+    if(theme === 'Light'){
+      setTheme('Dark')
+      setBtnText('Enable Light Mode')
+    }else{
+      setTheme('Light')
+      setBtnText('Enable Dark Mode')
+
+    }
+  }
+
+  useEffect(()=>{
+    document.body.className = theme
+  }, [theme])
+
   const toUpperCase = () => {
     console.log(text);
     setText(text.toUpperCase());
@@ -77,7 +95,8 @@ export default function Textform(props) {
 
   return (
     <>
-      <div className={`container`} style={theme}>
+      {/* <div className={`container`} style={theme}> */}
+      <div className={`container ${theme} textForm`} >
         <div className="mb-3 ">
           <h1>{props.heading}</h1>
           <div className="time mt-2" onLoad={time}>
@@ -107,8 +126,10 @@ export default function Textform(props) {
             <button
               type="button"
               className="btn btn-primary mt-4"
-              onClick={toogleBtn}
+              // onClick={toogleBtn}
+              onClick={changeTheme}
             >
+              {/* {btnText} */}
               {btnText}
             </button>
             {/* <div  style={{width:"7vw",height:"3vw",backgroundColor:"red",marginTop:"1.5vw"}} className="oval-box">
