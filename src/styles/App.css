@@ -13,7 +13,10 @@
   .oval-box{
     color: #fff;
   }
-/* 
+
   @media (max-width: 800px) {
-   
-  } */
+   .btns{
+    flex-direction: column;
+    
+   }
+  }

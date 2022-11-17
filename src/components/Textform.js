@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from "react";
+import Navbar from "./Navbar";
 
 export default function Textform(props) {
   const [text, setText] = useState("");
@@ -95,6 +96,7 @@ export default function Textform(props) {
 
   return (
     <>
+    {/* <Navbar title="LokeshApp" aboutText="About Us"></Navbar> */}
       {/* <div className={`container`} style={theme}> */}
       <div className={`container ${theme} textForm`} >
         <div className="mb-3 ">
