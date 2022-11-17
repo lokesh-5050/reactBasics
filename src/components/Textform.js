@@ -1,5 +1,4 @@
-import React, { useState , useEffect } from "react";
-import Navbar from "./Navbar";
+import React, { useState, useEffect } from "react";
 
 export default function Textform(props) {
   const [text, setText] = useState("");
@@ -33,24 +32,23 @@ export default function Textform(props) {
   //   }
   // };
 
-  /*2nd loghic for darkMode*/ 
+  /*2nd loghic for darkMode*/
 
-  const [theme, setTheme] = useState('Light')
-  const [btnText, setBtnText] = useState('Enable Dark Mode')
-  const changeTheme = () =>{
-    if(theme === 'Light'){
-      setTheme('Dark')
-      setBtnText('Enable Light Mode')
-    }else{
-      setTheme('Light')
-      setBtnText('Enable Dark Mode')
-
+  const [theme, setTheme] = useState("Light");
+  const [btnText, setBtnText] = useState("Enable Dark Mode");
+  const changeTheme = () => {
+    if (theme === "Light") {
+      setTheme("Dark");
+      setBtnText("Enable Light Mode");
+    } else {
+      setTheme("Light");
+      setBtnText("Enable Dark Mode");
     }
-  }
+  };
 
-  useEffect(()=>{
-    document.body.className = theme
-  }, [theme])
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const toUpperCase = () => {
     console.log(text);
@@ -62,14 +60,12 @@ export default function Textform(props) {
   };
   const copyToClip = (e) => {
     console.log(e);
-    // console.log(e.target.parentElement.parentElement.children[1].defaultValue)
-    let copyAllText = e.target.parentElement.parentElement.children[2].value;
-    console.log(copyAllText);
-    navigator.clipboard.writeText(copyAllText);
+    let text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
   };
   const handleChange = (e) => {
     // console.log(e.target.value);
-
     setText(e.target.value);
   };
   const removeAll = () => {
@@ -80,6 +76,13 @@ export default function Textform(props) {
     setTime(today);
   };
   setInterval(time, 1000);
+
+  const handleRemoveExtraSpaces = () => {
+    let ourValue = document.getElementById("myBox").value;
+    let newtext = ourValue.split(/[ ]+/)
+    setText(newtext.join(" "))
+    
+  };
 
   // const moveToLeft = () =>{
   //   let flag = 0
@@ -96,9 +99,9 @@ export default function Textform(props) {
 
   return (
     <>
-    {/* <Navbar title="LokeshApp" aboutText="About Us"></Navbar> */}
+      {/* <Navbar title="LokeshApp" aboutText="About Us"></Navbar> */}
       {/* <div className={`container`} style={theme}> */}
-      <div className={`container ${theme} textForm`} >
+      <div className={`container ${theme} textForm`}>
         <div className="mb-3 ">
           <h1>{props.heading}</h1>
           <div className="time mt-2" onLoad={time}>
@@ -124,6 +127,12 @@ export default function Textform(props) {
             </button>
             <button className="btn btn-primary mt-4" onClick={removeAll}>
               Remove All
+            </button>
+            <button
+              className="btn btn-primary mt-4"
+              onClick={handleRemoveExtraSpaces}
+            >
+              RemoveExtraSpaces
             </button>
             <button
               type="button"
