@@ -3,33 +3,34 @@ import React, { useState ,useEffect } from "react";
 export default function Textform(props) {
   const [text, setText] = useState("");
   const [times, setTime] = useState("Time Now");
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-  const [theme, setTheme] = useState({
-    width: "70%",
-    marginTop: "2vmax",
-    color: "black",
-    backgroundColor: "white",
-  });
+  
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
+  // const [theme, setTheme] = useState({
+  //   width: "70%",
+  //   marginTop: "2vmax",
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
-  const toogleBtn = () => {
-    if (theme.color == "black") {
-      setTheme({
-        width: "70%",
-        marginTop: "2vmax",
-        color: "white",
-        backgroundColor: "#333",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setTheme({
-        width: "70%",
-        marginTop: "2vmax",
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
-  };
+  // const toogleBtn = () => {
+  //   if (theme.color == "black") {
+  //     setTheme({
+  //       width: "70%",
+  //       marginTop: "2vmax",
+  //       color: "white",
+  //       backgroundColor: "#333",
+  //     });
+  //     setBtnText("Enable Light Mode");
+  //   } else {
+  //     setTheme({
+  //       width: "70%",
+  //       marginTop: "2vmax",
+  //       color: "black",
+  //       backgroundColor: "white",
+  //     });
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  // };
 
   
   const toUpperCase = () => {
